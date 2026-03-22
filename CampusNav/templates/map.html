@@ -1,0 +1,54 @@
+<div class="map-area">
+          <canvas id="campus-map"></canvas>
+          <div class="map-overlay-top"><div class="live-activity">ACTIVITY <strong>1,250</strong> STEPS</div></div>
+          <div class="map-overlay-bot">
+            <button class="pill-btn"><span class="ico">☕</span> CAFES</button>
+            <button class="pill-btn"><span class="ico">📚</span> STUDY</button>
+            <button class="pill-btn"><span class="ico">🏋️</span> GYM</button>
+          </div>
+        </div>
+
+        <div class="right-panel">
+          <div class="rp-head">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <h2>Route Planner</h2>
+          </div>
+          <div class="rp-stat"><span class="lbl">STATUS: <strong style="color:var(--txt)">MODERATE</strong></span><span class="grn">OPEN TIL 5PM</span></div>
+          <p class="rp-desc">Select source and destination to find the best campus route.</p>
+
+          <div class="route-box">
+            <div class="rb-inputs">
+              <div class="input-row">
+                <div class="dot-grn"></div>
+                <select id="source" class="loc-select"><option value="" disabled selected>Select starting point...</option></select>
+              </div>
+              <button class="swap-btn" id="swap-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg></button>
+              <div class="input-row">
+                <div class="dot-red"></div>
+                <select id="destination" class="loc-select"><option value="" disabled selected>Select destination...</option></select>
+              </div>
+            </div>
+            <div id="route-err" class="err-msg"></div>
+            <button id="find-btn" class="btn-primary">ROUTE ME &nbsp;➤</button>
+          </div>
+
+          <div id="result-section" class="result-card hidden">
+            <div class="rc-head"><div class="rc-lbl">ESTIMATED ARRIVAL</div><div id="crowd-badge" class="rc-badge crowd">✓ CROWD-OPTIMIZED</div></div>
+            <div class="rc-big">
+              <div class="rc-time"><span id="result-time">--</span></div>
+              <div class="rc-dist" id="result-distance">-- m</div>
+            </div>
+            <div class="rc-div"></div>
+            <div class="rc-path" id="path-display"></div>
+            <button class="btn-clear" id="clear-route-btn">Clear Route</button>
+          </div>
+
+          <div class="union-card hidden" id="union-section">
+            <div class="uc-head">
+              <div><h3>Student Union</h3><p>MAIN CONCOURSE</p></div>
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" style="opacity:.2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div class="uc-tags"><span class="tag grn-t">CAFE OPEN</span><span class="tag grn-t">ATMS</span></div>
+            <div class="uc-live"><div class="uc-lf"><span>LIVE DENSITY</span><span>64%</span></div><div class="uc-bar"><div class="uc-fill blu-f" style="width:64%"></div></div></div>
+          </div>
+        </div>

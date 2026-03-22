@@ -1,0 +1,246 @@
+<div class="in-map-wrap">
+  <div class="in-topbar">
+    <div class="in-route-box"
+      style="pointer-events:auto;display:flex;gap:10px;align-items:center;background:#fff;padding:8px 12px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.05);flex:1;max-width:550px;">
+      <select id="indoor-source" class="loc-select"
+        style="flex:1;border:1px solid #cbd5e1;border-radius:6px;padding:6px 10px;outline:none;color:#000;">
+        <option value="" disabled selected>Start Location</option>
+      </select>
+      <button id="indoor-swap-btn"
+        style="background:none;border:none;cursor:pointer;color:#64748b;padding:0 4px">⇄</button>
+      <select id="indoor-dest" class="loc-select"
+        style="flex:1;border:1px solid #cbd5e1;border-radius:6px;padding:6px 10px;outline:none;color:#000;">
+        <option value="" disabled selected>Destination</option>
+      </select>
+      <button id="indoor-find-btn" class="btn-primary"
+        style="padding:6px 16px;font-size:0.85rem;border-radius:6px;margin:0">Route</button>
+      <button id="indoor-clear-btn" class="btn-clear"
+        style="padding:4px 12px;font-size:0.85rem;border-radius:6px;margin:0 ;color:#000;">Clear</button>
+      <span id="indoor-err" style="color:#ef4444;font-size:0.8rem;margin-left:8px;font-weight:600"></span>
+    </div>
+    <div class="in-topbar-right">
+      <div class="in-floor-pills">
+        <button class="in-fpill">L4</button><button class="in-fpill">L3</button>
+        <button class="in-fpill active">L2</button><button class="in-fpill">L1</button>
+      </div>
+      <button class="in-3d-btn">
+        <svg viewBox="0 0 24 24" width="13" height="13">
+          <path
+            d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
+        </svg>
+        3D VIEW
+      </button>
+    </div>
+  </div>
+
+  <div class="fp-canvas">
+    <svg class="fp-corridors" viewBox="0 0 1000 620" preserveAspectRatio="xMidYMid meet">
+      <rect x="0" y="265" width="1000" height="80" fill="#d0d6e2" />
+      <rect x="55" y="0" width="85" height="620" fill="#d0d6e2" />
+      <rect x="840" y="0" width="85" height="620" fill="#d0d6e2" />
+      <rect x="318" y="0" width="64" height="350" fill="#d0d6e2" />
+      <rect x="638" y="0" width="64" height="350" fill="#d0d6e2" />
+      <rect x="0" y="520" width="1000" height="60" fill="#d0d6e2" />
+      <rect x="0" y="265" width="1000" height="80" fill="none" stroke="#b8c4d0" stroke-width="1.2" />
+      <rect x="55" y="0" width="85" height="620" fill="none" stroke="#b8c4d0" stroke-width="0.8" />
+      <rect x="840" y="0" width="85" height="620" fill="none" stroke="#b8c4d0" stroke-width="0.8" />
+      <g stroke="#c4ccd8" stroke-width="1" fill="none" opacity="0.7">
+        <line x1="170" y1="305" x2="300" y2="305" />
+        <polyline points="292,299 300,305 292,311" />
+        <line x1="402" y1="305" x2="620" y2="305" />
+        <polyline points="612,299 620,305 612,311" />
+        <line x1="720" y1="305" x2="822" y2="305" />
+        <polyline points="814,299 822,305 814,311" />
+      </g>
+    </svg>
+    <div class="fp2-room" style="left:9%;top:5%;width:15%;height:37%">
+      <div class="fp2-badge">CS DEPT</div>
+      <div class="fp2-name">LAB 201</div>
+      <div class="fp2-room-detail"><svg viewBox="0 0 24 24" width="10" height="10" stroke="#94a3b8">
+          <rect x="2" y="3" width="20" height="14" rx="2" />
+          <line x1="8" y1="21" x2="16" y2="21" />
+          <line x1="12" y1="17" x2="12" y2="21" />
+        </svg><span>12 seats</span></div>
+    </div>
+    <div class="fp2-room" style="left:26%;top:5%;width:15%;height:37%">
+      <div class="fp2-badge">CS DEPT</div>
+      <div class="fp2-name">LAB 202</div>
+      <div class="fp2-room-detail"><svg viewBox="0 0 24 24" width="10" height="10" stroke="#94a3b8">
+          <rect x="2" y="3" width="20" height="14" rx="2" />
+          <line x1="8" y1="21" x2="16" y2="21" />
+          <line x1="12" y1="17" x2="12" y2="21" />
+        </svg><span>12 seats</span></div>
+    </div>
+    <div class="fp2-room fp2-highlight" style="left:44%;top:3%;width:27%;height:40%">
+      <div class="fp2-room-toprow">
+        <svg viewBox="0 0 24 24" width="12" height="12" stroke="#92400e">
+          <path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01" />
+        </svg>
+        <svg viewBox="0 0 24 24" width="12" height="12" stroke="#92400e">
+          <path d="M23 7l-7 5 7 5V7z" />
+          <rect x="1" y="5" width="15" height="14" rx="2" />
+        </svg>
+        <span class="fp2-badge sm">MAIN WING</span>
+      </div>
+      <div class="fp2-name lg">LECTURE HALL B</div>
+      <div class="fp2-cap-bar">
+        <span class="fp2-cap-lbl">CAP</span>
+        <div class="fp2-cap-track">
+          <div class="fp2-cap-fill" style="width:72%"></div>
+        </div>
+        <span class="fp2-cap-pct">72%</span>
+      </div>
+      <div class="fp2-doors">
+        <span class="fp2-door-tag">ENTRY 1</span><span class="fp2-door-tag">ENTRY 2</span>
+      </div>
+    </div>
+    <div class="fp2-room fp2-util" style="left:74%;top:5%;width:9%;height:37%">
+      <svg viewBox="0 0 24 24" width="16" height="16" stroke="#64748b">
+        <path d="M3 3h7v7H3zM3 14h3v7H3zM14 14h7v7h-7z" />
+        <path d="M10 3v4M14 3h7M17 7v7" />
+      </svg>
+      <div class="fp2-name xs" style="margin-top:4px">STAIRWELL A</div>
+    </div>
+    <div class="fp2-room fp2-dest" style="left:85%;top:3%;width:13%;height:40%">
+      <div class="fp2-dest-badge">DESTINATION</div>
+      <div class="fp2-name sm" style="color:#065f46;font-weight:700;margin-top:20px">OFFICE 205</div>
+      <div class="fp2-name xs">Prof. Aria Thorne</div>
+    </div>
+    <div class="fp2-room fp2-util" style="left:9%;top:58%;width:9%;height:20%">
+      <div class="fp2-badge sm" style="color:#1d4ed8">EL-01</div>
+      <svg viewBox="0 0 24 24" width="18" height="18" stroke="#3b82f6">
+        <rect x="5" y="2" width="14" height="20" rx="2" />
+        <polyline points="9 10 12 7 15 10" />
+        <polyline points="15 17 12 20 9 17" />
+      </svg>
+      <div class="fp2-name xs" style="color:#1d4ed8">ELEVATOR</div>
+    </div>
+    <div class="fp2-room fp2-util" style="left:26%;top:58%;width:13%;height:20%">
+      <svg viewBox="0 0 24 24" width="15" height="15" stroke="#64748b">
+        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 00-3-3.87" />
+        <path d="M16 3.13a4 4 0 010 7.75" />
+      </svg>
+      <div class="fp2-name sm" style="margin-top:4px">SERVICE HUB</div>
+    </div>
+
+    <div class="fp2-landmark" style="left:44%;top:60%">
+      <span class="fp2-dot red"></span><span class="fp2-lbl">RED SCULPTURE</span>
+    </div>
+    <div class="fp2-you" style="left:13%;top:51%">
+      <div class="fp2-you-pulse"></div><span class="fp2-you-dot"></span><span class="fp2-you-lbl">YOU ARE HERE</span>
+    </div>
+    <svg class="fp2-route-svg" id="indoor-route-svg" viewBox="0 0 1000 620" preserveAspectRatio="xMidYMid meet">
+    </svg>
+  </div>
+</div>
+<div class="in-nav-panel">
+  <div class="in-nav-head">
+    <div>
+      <div class="in-nav-title">Live Nav</div>
+      <div class="in-nav-sub"><span class="dot-g sm"></span> Real-time tracking active</div>
+    </div>
+    <button class="in-close">✕</button>
+  </div>
+  <div class="in-dest-card">
+    <div class="in-dest-icon">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="#10b981">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+        <circle cx="12" cy="10" r="3" fill="white" />
+      </svg>
+    </div>
+    <div style="flex:1">
+      <div class="in-dest-label" id="indoor-dest-label">DESTINATION</div>
+      <div class="in-dest-name" id="indoor-dest-name">...</div>
+      <div class="in-dest-sub" id="indoor-dest-sub">Indoor Route</div>
+    </div>
+  </div>
+  <div class="in-stats">
+    <div class="in-stat-card">
+      <svg viewBox="0 0 24 24" width="15" height="15" stroke="#10b981" fill="none">
+        <circle cx="12" cy="12" r="10" />
+        <polyline points="12 6 12 12 16 14" />
+      </svg>
+      <div>
+        <div class="in-stat-val" id="indoor-time">-- min</div>
+        <div class="in-stat-lbl">ETA</div>
+      </div>
+    </div>
+    <div class="in-stat-divider"></div>
+    <div class="in-stat-card">
+      <svg viewBox="0 0 24 24" width="15" height="15" stroke="#3b82f6" fill="none">
+        <line x1="5" y1="12" x2="19" y2="12" />
+        <polyline points="12 5 19 12 12 19" />
+      </svg>
+      <div>
+        <div class="in-stat-val" id="indoor-dist">-- m</div>
+        <div class="in-stat-lbl">DISTANCE</div>
+      </div>
+    </div>
+    <div class="in-stat-divider"></div>
+    <div class="in-stat-card">
+      <svg viewBox="0 0 24 24" width="15" height="15" stroke="#f59e0b" fill="none">
+        <polygon points="12 2 2 7 12 12 22 7 12 2" />
+        <polyline points="2 17 12 22 22 17" />
+      </svg>
+      <div>
+        <div class="in-stat-val">L2</div>
+        <div class="in-stat-lbl">FLOOR</div>
+      </div>
+    </div>
+  </div>
+  <div class="in-progress-wrap">
+    <div class="in-progress-bar">
+      <div class="in-progress-fill" style="width:55%"></div>
+      <div class="in-progress-dot" style="left:55%"></div>
+    </div>
+    <div class="in-progress-labels"><span>EL-01</span><span class="grn" style="font-size:.66rem;font-weight:700">55%
+        complete</span><span>Office 205</span></div>
+  </div>
+  <div class="in-steps">
+    <div class="in-step done">
+      <div class="in-step-check">✓</div>
+      <div class="in-step-info">
+        <div class="in-step-title">Exit Elevator Lobby</div>
+        <div class="in-step-desc">Turned left towards the Main Atrium corridor.</div>
+        <div class="in-step-img"><span class="in-step-img-ph">🏛️</span><span class="in-step-img-cap">Passed the Glass
+            Trophy Case</span></div>
+      </div>
+    </div>
+    <div class="in-step active">
+      <div class="in-step-icon"><svg viewBox="0 0 24 24" width="15" height="15" stroke="#10b981" fill="none">
+          <polyline points="9 18 15 12 9 6" />
+        </svg></div>
+      <div class="in-step-info">
+        <div class="in-step-title">Turn Right at Hall B</div>
+        <div class="in-step-desc">Continue past the <strong class="grn">Red Sculpture</strong> landmark.</div>
+        <div class="in-approaching"><svg viewBox="0 0 24 24" width="9" height="9" stroke="currentColor" fill="none">
+            <line x1="22" y1="2" x2="2" y2="22" />
+            <path d="M9.36 5.34L2 4l1.34 7.36M14.64 18.66L22 20l-1.34-7.36" />
+          </svg> APPROACHING NOW</div>
+      </div>
+    </div>
+    <div class="in-step muted">
+      <div class="in-step-num">3</div>
+      <div class="in-step-info">
+        <div class="in-step-title">Arrive at Office 205</div>
+        <div class="in-step-desc">Destination is next to the lounge vending area.</div>
+      </div>
+    </div>
+  </div>
+  <div class="in-nav-foot">
+    <button id="indoor-share-btn" class="in-foot-btn"><svg viewBox="0 0 24 24" width="13" height="13"
+        stroke="currentColor" fill="none">
+        <circle cx="18" cy="5" r="3" />
+        <circle cx="6" cy="12" r="3" />
+        <circle cx="18" cy="19" r="3" />
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+      </svg> SHARE</button>
+    <button id="indoor-report-btn" class="in-foot-btn warn"><svg viewBox="0 0 24 24" width="13" height="13"
+        stroke="currentColor" fill="none">
+        <polygon points="3 11 22 2 13 21 11 13 3 11" />
+      </svg> REPORT ISSUE</button>
+  </div>
+</div>
